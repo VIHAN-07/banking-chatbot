@@ -1,0 +1,16 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build and Run Banking Chatbot",
+			"type": "shell",
+			"command": "echo",
+			"args": [
+				"Banking Chatbot Virtual Assistant is ready! Backend: http://localhost:8080, Frontend: http://localhost:3000"
+			],
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		}
+	]
+}

@@ -1,0 +1,15 @@
+com\barclays\bankingchatbot\service\nlp\IntentRecognitionService.class
+com\barclays\bankingchatbot\service\ChatbotService.class
+com\barclays\bankingchatbot\BankingChatbotApplication.class
+com\barclays\bankingchatbot\service\nlp\VoiceProcessingService.class
+com\barclays\bankingchatbot\dto\Intent.class
+com\barclays\bankingchatbot\dto\ChatResponse.class
+com\barclays\bankingchatbot\service\banking\TransactionService.class
+com\barclays\bankingchatbot\controller\ChatbotController.class
+com\barclays\bankingchatbot\dto\KnowledgeBaseResult.class
+com\barclays\bankingchatbot\service\banking\AppointmentService.class
+com\barclays\bankingchatbot\config\SecurityConfig.class
+com\barclays\bankingchatbot\service\KnowledgeBaseService.class
+com\barclays\bankingchatbot\service\banking\AccountService.class
+com\barclays\bankingchatbot\dto\ChatResponse$Builder.class
+com\barclays\bankingchatbot\dto\ChatMessage.class
