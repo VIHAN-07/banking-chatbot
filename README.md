@@ -1,5 +1,12 @@
 # Banking Chatbot Virtual Assistant
 
+[![Java](https://img.shields.io/badge/Java-21-orange.svg)](https://openjdk.java.net/)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.3.5-brightgreen.svg)](https://spring.io/projects/spring-boot)
+[![React](https://img.shields.io/badge/React-18-blue.svg)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black.svg)](https://github.com/VIHAN-07/bot)
+
 A comprehensive Banking Chatbot & Virtual Assistant built with **Spring Boot** backend and **React** frontend, designed to showcase modern banking technology solutions for financial institutions.
 
 ## 🚀 Features
