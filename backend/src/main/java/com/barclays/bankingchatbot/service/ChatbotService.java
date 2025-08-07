@@ -4,6 +4,7 @@ import com.barclays.bankingchatbot.dto.ChatMessage;
 import com.barclays.bankingchatbot.dto.ChatResponse;
 import com.barclays.bankingchatbot.dto.Intent;
 import com.barclays.bankingchatbot.dto.KnowledgeBaseResult;
+import com.barclays.bankingchatbot.service.analytics.AnalyticsService;
 import com.barclays.bankingchatbot.service.banking.AccountService;
 import com.barclays.bankingchatbot.service.banking.TransactionService;
 import com.barclays.bankingchatbot.service.banking.AppointmentService;
@@ -25,28 +26,38 @@ public class ChatbotService {
     private final TransactionService transactionService;
     private final AppointmentService appointmentService;
     private final KnowledgeBaseService knowledgeBaseService;
+    private final AnalyticsService analyticsService;
     
     public ChatbotService(IntentRecognitionService intentRecognitionService,
                          VoiceProcessingService voiceProcessingService,
                          AccountService accountService,
                          TransactionService transactionService,
                          AppointmentService appointmentService,
-                         KnowledgeBaseService knowledgeBaseService) {
+                         KnowledgeBaseService knowledgeBaseService,
+                         AnalyticsService analyticsService) {
         this.intentRecognitionService = intentRecognitionService;
         this.voiceProcessingService = voiceProcessingService;
         this.accountService = accountService;
         this.transactionService = transactionService;
         this.appointmentService = appointmentService;
         this.knowledgeBaseService = knowledgeBaseService;
+        this.analyticsService = analyticsService;
     }
     
     public ChatResponse processMessage(ChatMessage message, Principal principal) {
+        long startTime = System.currentTimeMillis();
         try {
             // Extract intent from the message
             Intent intent = intentRecognitionService.recognizeIntent(message.getMessage());
             
             // Process based on intent
             String response = processIntent(intent, message, principal);
+            
+            // Record analytics
+            long responseTime = System.currentTimeMillis() - startTime;
+            String userId = principal != null ? principal.getName() : "anonymous";
+            analyticsService.recordInteraction(userId, intent.getName(), message.getMessage(), 
+                                             responseTime, intent.getConfidence(), true);
             
             return ChatResponse.builder()
                     .message(response)
